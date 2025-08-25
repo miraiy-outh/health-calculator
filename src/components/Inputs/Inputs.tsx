@@ -1,12 +1,30 @@
-import { checkboxesOptions } from "../../common/constants";
+import { inputsData } from "../../common/constants";
+import type { InputsGroupNames, TBodyParams } from "../../common/types";
+import { InputConstructor } from "../InputConstructor/InputConstructor";
+import styles from "./Inputs.module.scss";
 
-export const Inputs = ({ calculations }: { calculations: string[] }) => {
-  const isImt = calculations.includes(checkboxesOptions[0].value);
-  const isCalories = calculations.includes(checkboxesOptions[1].value);
+type TProps = {
+  calculations: InputsGroupNames[];
+  bodyParams: TBodyParams;
+  setBodyParams: React.Dispatch<React.SetStateAction<TBodyParams>>;
+};
+
+export const Inputs = ({ calculations, bodyParams, setBodyParams }: TProps) => {
   return (
-    <div>
-      {isImt && <div></div>}
-      {isCalories && <div></div>}
+    <div className={styles.container}>
+      {calculations.map((name) => {
+        return (
+          <div className={styles.subContainer}>
+            {inputsData[name].map((item) => (
+              <InputConstructor
+                inputData={item}
+                value={bodyParams[item.name as keyof TBodyParams]}
+                setBodyParams={setBodyParams}
+              />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 };
