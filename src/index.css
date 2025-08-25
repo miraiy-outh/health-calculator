@@ -1,0 +1,20 @@
+:root {
+  --color-background: #ffffff;
+  --color-background-hint: #f2f2f2;
+  --color-text-main: #1a1a1a;
+  --color-text-accent: #ffffff;
+  --color-text-hint: #7a7a7a;
+
+  --color-violet100: #ede9fe;
+  --color-violet200: #ddd6fe;
+  --color-violet300: #c4b5fd;
+  --color-violet400: #a78bfa;
+  --color-violet500: #8b5cf6;
+  --color-violet600: #7c3aed;
+  --color-violet700: #6d28d9;
+  --color-violet800: #5b21b6;
+
+  --shadow-light: 0px 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0px 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-heavy: 0px 8px 30px rgba(0, 0, 0, 0.18);
+}
