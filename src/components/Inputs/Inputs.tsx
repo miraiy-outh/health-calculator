@@ -1,15 +1,12 @@
-import type { TCheckedCalculations } from "../../common/types";
+import { checkboxesOptions } from "../../common/constants";
 
-export const Inputs = ({
-  calculations,
-}: {
-  calculations: TCheckedCalculations;
-}) => {
-  const { imt, calories } = calculations;
+export const Inputs = ({ calculations }: { calculations: string[] }) => {
+  const isImt = calculations.includes(checkboxesOptions[0].value);
+  const isCalories = calculations.includes(checkboxesOptions[1].value);
   return (
     <div>
-      {imt && <div></div>}
-      {calories && <div></div>}
+      {isImt && <div></div>}
+      {isCalories && <div></div>}
     </div>
   );
 };
