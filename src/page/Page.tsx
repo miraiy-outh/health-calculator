@@ -1,25 +1,22 @@
-import Title from "antd/es/typography/Title";
-import styles from "./Page.module.scss";
-import { Inputs } from "../components/Inputs/Inputs";
-import { useState } from "react";
-import { Checkboxes } from "../components/Checkboxes/Checkboxes";
-import type { InputsGroupNames, TBodyParams } from "../common/types";
-import { checkboxesOptions, initBodyParams } from "../common/constants";
+import { Accordion, AccordionItem } from "@heroui/react";
 
 export const Page = () => {
-  const [checkedCalculations, setCheckedCalculations] = useState<
-    InputsGroupNames[]
-  >([checkboxesOptions[0].value]);
-  const [bodyParams, setBodyParams] = useState<TBodyParams>(initBodyParams);
   return (
-    <div className={styles.container}>
-      <Title>Калькулятор здоровья</Title>
-      <Checkboxes setCheckedCalculations={setCheckedCalculations} />
-      <Inputs
-        calculations={checkedCalculations}
-        bodyParams={bodyParams}
-        setBodyParams={setBodyParams}
-      />
+    <div>
+      <div>Калькулятор здоровья</div>
+      <Accordion isCompact>
+        <AccordionItem key="1" aria-label="IMT" title="ИМТ"></AccordionItem>
+        <AccordionItem
+          key="2"
+          aria-label="Accordion 2"
+          title="Accordion 2"
+        ></AccordionItem>
+        <AccordionItem
+          key="3"
+          aria-label="Accordion 3"
+          title="Accordion 3"
+        ></AccordionItem>
+      </Accordion>
     </div>
   );
 };
